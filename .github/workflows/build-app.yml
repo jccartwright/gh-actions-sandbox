@@ -1,0 +1,20 @@
+name: Build and Deploy
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  Build-and-Deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: install any widget dependencies
+        run: |
+          for d in `find . -maxdepth 1 -type d`; do 
+          cd $d
+          if test -f package.json; then echo "installing dependencies for `pwd`..." && npm i; fi
+          cd ..
+          done
+        working-directory: src
