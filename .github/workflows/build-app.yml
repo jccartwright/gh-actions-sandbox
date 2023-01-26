@@ -14,8 +14,8 @@ jobs:
         run: |
           for d in `find . -mindepth 1 -maxdepth 1 -type d`; do
           echo $d
-          #cd $d
-          #if test -f package.json; then echo "installing dependencies for `pwd`..." && npm i; fi
-          #cd ..
+          cd $d
+          if test -f package.json; then echo "installing dependencies for `pwd`..." && npm i; fi
+          cd ..
           done
         working-directory: src
