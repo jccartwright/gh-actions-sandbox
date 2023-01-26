@@ -15,8 +15,7 @@ jobs:
           for d in `find . -mindepth 1 -maxdepth 1 -type d`; do
           echo $d
           cd $d
-          if test -f package.json
-          then
+          if test -f package.json; then
           echo "installing dependencies for `pwd`..."
           npm i
           fi
